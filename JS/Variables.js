@@ -10,7 +10,7 @@ var edad
 let ciudad
 
 //Inicilizando variable
-edad = 29
+edad = 23
 ciudad = "Quellón"
 
 
