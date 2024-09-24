@@ -2,7 +2,7 @@ const numeroingresado = parseFloat(prompt("Ingresa un número:"));
 
 if (isNaN(numeroingresado)) {
   
-    alert("El valor ingresado no es válido.");
+    alert("El valor ingresado no es valido.");
 
     }else if (numeroingresado % 2 === 0) {
 

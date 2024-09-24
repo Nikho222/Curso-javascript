@@ -11,7 +11,7 @@ while (continuar) {
     const nombre = prompt("Ingresa el nombre de un estudiante");
     estudiantes.push(nombre); 
     
-    continuar = confirm ("¿Quieres ingresaaar otro nombre?");
+    continuar = confirm ("¿Quieres ingresar otro nombre?");
 }
 
 console.log("Lista de estudiantes:");
