@@ -25,7 +25,7 @@ for (let j = 0; j < palabraingresada.length; j++) {
 
 sumavocales = a + e + i + o + u; 
 
-// Mostrar los resultados
+
 console.log(`La cantidad de a en el texto es de: ${a}`);
 
 console.log(`La cantidad de e en el texto es de: ${e}`);

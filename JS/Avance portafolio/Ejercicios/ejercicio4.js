@@ -1,20 +1,14 @@
 // Tarifas
-const tarifas = {
-    diurno: {
-        normal: 12000,
-        domingo: 14000 // 12000 + 2000
-    },
-    nocturno: {
-        normal: 16000,
-        domingo: 19000 // 16000 + 3000
-    }
-};
+let tarifaDiurna = 12000;
+let tarifaNocturna = 16000;
+let incrementoDomingoDiurno = 2000;
+let incrementoDomingoNocturno = 3000;
 
 // Empleados
-const empleados = [
+let empleados = [
     {
         nombre: "Empleado 1",
-        horarios: {
+        dias: {
             Lunes: "nocturno",
             Martes: "nocturno",
             Miércoles: "nocturno",
@@ -26,7 +20,7 @@ const empleados = [
     },
     {
         nombre: "Empleado 2",
-        horarios: {
+        dias: {
             Lunes: null,
             Martes: "nocturno",
             Miércoles: "nocturno",
@@ -38,7 +32,7 @@ const empleados = [
     },
     {
         nombre: "Empleado 3",
-        horarios: {
+        dias: {
             Lunes: null,
             Martes: null,
             Miércoles: "diurno",
@@ -50,41 +44,33 @@ const empleados = [
     }
 ];
 
-// Función para calcular pagos
-function calcularPagos(empleados) {
-    empleados.forEach(empleado => {
-        let totalSemanal = 0;
-        let pagosDiarios = {};
+// Inicialización de pagos totales
+let totalSemanal = 0;
 
-        for (let dia in empleado.horarios) {
-            const turno = empleado.horarios[dia];
-            let pagoDiario = 0;
+// Cálculo de pagos por empleado
+for (let empleado of empleados) {
+    let sumaDiaria = 0;
+    
+    for (let dia in empleado.dias) {
+        let turno = empleado.dias[dia];
+        let pagoDiario = 0;
 
-            if (turno === "diurno") {
-                pagoDiario = dia === "Domingo" ? tarifas.diurno.domingo : tarifas.diurno.normal;
-            } else if (turno === "nocturno") {
-                pagoDiario = dia === "Domingo" ? tarifas.nocturno.domingo : tarifas.nocturno.normal;
-            }
-
-            if (pagoDiario > 0) {
-                pagosDiarios[dia] = pagoDiario;
-                totalSemanal += pagoDiario * 10; // 10 horas
-            }
+        if (turno === "diurno") {
+            pagoDiario = dia === "Domingo" ? (tarifaDiurna + incrementoDomingoDiurno) : tarifaDiurna;
+        } else if (turno === "nocturno") {
+            pagoDiario = dia === "Domingo" ? (tarifaNocturna + incrementoDomingoNocturno) : tarifaNocturna;
         }
 
-        empleado.pagosDiarios = pagosDiarios;
-        empleado.totalSemanal = totalSemanal;
-    });
+        if (pagoDiario > 0) {
+            sumaDiaria += pagoDiario * 10; // 10 horas
+        }
+    }
+
+    totalSemanal += sumaDiaria;
+    empleado.totalDiario = sumaDiaria;
+
+    console.log(`--- ${empleado.nombre} ---`);
+    console.log(`Total Semanal: ${empleado.totalDiario} CLP\n`);
 }
 
-// Calcular los pagos
-calcularPagos(empleados);
-
-// Mostrar resultados
-empleados.forEach(empleado => {
-    console.log(`--- ${empleado.nombre} ---`);
-    for (let dia in empleado.pagosDiarios) {
-        console.log(`${dia}: ${empleado.pagosDiarios[dia]} CLP`);
-    }
-    console.log(`Total Semanal: ${empleado.totalSemanal} CLP\n`);
-});
+console.log(`La suma total de todos los empleados es: ${totalSemanal} CLP`);
