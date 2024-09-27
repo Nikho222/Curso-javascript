@@ -1,24 +1,32 @@
-let secuencia1 = 500
+// Inicializamos las variables de las secuencias
+let secuencia1 = 500; // Valor inicial de la primera secuencia
+let secuencia2 = 456; // Valor inicial de la segunda secuencia
 
-let secuencia2 = 456
+// Inicializamos las variables para almacenar las sumas de cada secuencia
+let sumasecuencia1 = 0; // Suma acumulativa de la primera secuencia
+let sumasecuencia2 = 0; // Suma acumulativa de la segunda secuencia
 
-let sumasecuencia1= 0
-
-let sumasecuencia2= 0
-
+// Un bucle que se ejecuta 30 veces
 for (let i = 0; i < 30; i++) {
-
-    secuencia1+= 10
+    // Actualizamos la primera secuencia, sumando 10 en cada iteración
+    secuencia1 += 10;
+    // Acumulamos el valor actualizado en la suma de la primera secuencia
     sumasecuencia1 += secuencia1;
+    // Mostramos el valor actual de la primera secuencia en la consola
     console.log(secuencia1);
 
-    secuencia2-= 2
+    // Actualizamos la segunda secuencia, restando 2 en cada iteración
+    secuencia2 -= 2;
+    // Acumulamos el valor actualizado en la suma de la segunda secuencia
     sumasecuencia2 += secuencia2;
+    // Mostramos el valor actual de la segunda secuencia en la consola
     console.log(secuencia2);
 }
 
-sumatotal = sumasecuencia1 + sumasecuencia2;
+// Calculamos la suma total de ambas secuencias
+let sumatotal = sumasecuencia1 + sumasecuencia2;
 
+// Mostramos las sumas totales en la consola
 console.log(`La suma total de la secuencia de 500 es: ${sumasecuencia1}`);
 console.log(`La suma total de la secuencia de 456 es: ${sumasecuencia2}`);
 console.log(`La suma de ambos es: ${sumatotal}`);
