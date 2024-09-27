@@ -16,18 +16,17 @@ if (contrasena.length < 8) {
 
     alert ("La contraseña debe contener una letra mayuscula");
 
-    //} else  if (contrasena == 0 || contrasena == 1 || contrasena == 2 || contrasena == 3 || contrasena == 4 || contrasena == 5 || contrasena == 6 || contrasena == 7 || contrasena == 8 || contrasena == 9) {
+    } else  if (!/[0-9]/.test(contrasena)) {
 
-     //alert ("La contraseña debe contener al menos un número");
+     alert ("La contraseña debe contener al menos un número");
 
-     //} else  if (contraseña) {
+     } else  if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(contrasena)) {
 
-     //alert ("La contraseña debe contener al menos un carácter especial");
+     alert ("La contraseña debe contener al menos un carácter especial");
     
-     //Solo comprueba dos requisitos
-
      } else if (contrasena) {
 
         alert("La contraseña cumple con todos los requisitos");
     }
     
+//Ejercicio 2 pero completado con los otros 2 requisitos que faltaban
